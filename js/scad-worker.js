@@ -26,13 +26,27 @@ async function getOpenSCAD() {
   }
 
   self.postMessage({ type: 'log', msg: 'Initialising WASM (factory: ' + (factory.name || 'anonymous') + ')…' });
-  instance = await factory({
-    locateFile: (path) => CDN + path,  // fallback for non-import.meta builds
-    print: (msg) => self.postMessage({ type: 'log', msg }),
-    printErr: (msg) => {
-      stderrLines.push(msg);
-      self.postMessage({ type: 'log', msg: '[stderr] ' + msg });
-    },
+
+  instance = await new Promise((resolve, reject) => {
+    const done = (m) => {
+      if (!m?.FS) { reject(new Error('WASM module has no FS — init incomplete. typeof m: ' + typeof m)); return; }
+      resolve(m);
+    };
+
+    const result = factory({
+      locateFile: (path) => CDN + path,
+      print: (msg) => self.postMessage({ type: 'log', msg }),
+      printErr: (msg) => {
+        stderrLines.push(msg);
+        self.postMessage({ type: 'log', msg: '[stderr] ' + msg });
+      },
+      onRuntimeInitialized() { done(this); },
+    });
+
+    // Newer Emscripten returns a Promise; handle both without double-resolving
+    if (result && typeof result.then === 'function') {
+      result.then(done, reject);
+    }
   });
 
   return instance;
