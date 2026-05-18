@@ -22,6 +22,7 @@ let scadFiles = {};
 let worker = null;
 let lastSTL = null;
 let rendering = false;
+const logLines = [];
 
 // Resolve SCAD file URLs relative to this script's location (works on GitHub Pages)
 const BASE = new URL('..', import.meta.url).href;
@@ -124,6 +125,7 @@ window.downloadSTL = () => {
 function triggerRender() {
   if (rendering || !worker || !Object.keys(scadFiles).length) return;
   rendering = true;
+  logLines.length = 0;
   document.getElementById('render-btn').disabled = true;
 
   const partKey = document.getElementById('part-select').value;
@@ -140,7 +142,7 @@ function onWorkerMessage(e) {
       break;
 
     case 'log':
-      console.log('[openscad]', msg);
+      logLines.push(msg);
       break;
 
     case 'result':
@@ -153,8 +155,7 @@ function onWorkerMessage(e) {
       break;
 
     case 'error':
-      setStatus('Render error — see console for details', true);
-      console.error('[openscad error]\n', msg);
+      showError(msg);
       rendering = false;
       document.getElementById('render-btn').disabled = false;
       break;
@@ -237,6 +238,43 @@ function setStatus(msg, visible) {
   el.textContent = msg;
   el.classList.toggle('visible', visible && !!msg);
 }
+
+function showError(msg) {
+  // Show a short summary in the status overlay
+  const brief = msg.length > 120 ? msg.slice(0, 117) + '…' : msg;
+  setStatus('Error: ' + brief, true);
+
+  // Populate the debug panel with the full error + all captured log lines
+  const detail = [
+    '=== ERROR ===',
+    msg,
+    '',
+    '=== LOG (' + logLines.length + ' lines) ===',
+    ...logLines,
+  ].join('\n');
+
+  document.getElementById('debug-textarea').value = detail;
+  document.getElementById('debug-panel').classList.add('visible');
+}
+
+window.clearError = () => {
+  document.getElementById('debug-panel').classList.remove('visible');
+  setStatus('', false);
+};
+
+window.copyLogs = () => {
+  const text = document.getElementById('debug-textarea').value;
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(text).then(() => {
+      const btn = document.getElementById('copy-btn');
+      btn.textContent = 'Copied!';
+      setTimeout(() => { btn.textContent = 'Copy to clipboard'; }, 2000);
+    });
+  } else {
+    // Fallback for older iOS
+    prompt('Copy this error report:', text);
+  }
+};
 
 init().catch((e) => {
   console.error(e);

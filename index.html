@@ -203,6 +203,45 @@
       font-size: 0.75rem; color: var(--muted);
       pointer-events: none; white-space: nowrap;
     }
+
+    /* ── Debug / error panel ────────────────── */
+    #debug-panel {
+      position: fixed; bottom: 0; left: 0; right: 0;
+      max-height: 60vh;
+      background: #120a0a;
+      border-top: 2px solid #8b1a1a;
+      border-radius: 14px 14px 0 0;
+      display: none; flex-direction: column;
+      padding: 0 16px;
+      padding-bottom: max(16px, var(--safe-bottom));
+      z-index: 30;
+    }
+    #debug-panel.visible { display: flex; }
+
+    #debug-header {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 14px 0 10px;
+      flex-shrink: 0;
+    }
+    #debug-header h3 { font-size: 0.9rem; color: #f87171; }
+
+    #debug-textarea {
+      flex: 1; min-height: 0;
+      background: #0d0505; color: #fca5a5;
+      border: 1px solid #4a1a1a; border-radius: 6px;
+      padding: 10px; margin-bottom: 10px;
+      font-family: 'Menlo', 'Courier New', monospace;
+      font-size: 0.72rem; line-height: 1.5;
+      resize: none; overflow-y: auto;
+      -webkit-user-select: text; user-select: text;
+    }
+
+    #copy-btn {
+      flex-shrink: 0; width: 100%; margin-bottom: 8px;
+      background: #7f1d1d; border-color: #991b1b;
+      font-size: 0.875rem; padding: 10px;
+    }
+    #copy-btn:hover { background: #991b1b; }
   </style>
 </head>
 <body>
@@ -284,6 +323,16 @@
     <input type="range" id="explode" min="0" max="80" step="5" value="0">
   </div>
 
+</div>
+
+<!-- Debug / error panel -->
+<div id="debug-panel">
+  <div id="debug-header">
+    <h3>Error details</h3>
+    <button onclick="clearError()">✕ Close</button>
+  </div>
+  <textarea id="debug-textarea" readonly></textarea>
+  <button id="copy-btn" onclick="copyLogs()">Copy to clipboard</button>
 </div>
 
 <script>
