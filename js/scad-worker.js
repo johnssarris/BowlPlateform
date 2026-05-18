@@ -7,21 +7,31 @@ const stderrLines = [];
 async function getOpenSCAD() {
   if (instance) return instance;
 
+  const jsUrl = CDN + 'openscad.js';
+  self.postMessage({ type: 'log', msg: 'Loading openscad.js from: ' + jsUrl });
   try {
-    importScripts(CDN + 'openscad.js');
+    importScripts(jsUrl);
   } catch (e) {
-    throw new Error('Failed to load openscad.js from CDN: ' + e.message);
+    throw new Error('importScripts failed for ' + jsUrl + ': ' + e.message);
   }
 
-  // Emscripten modules export under the capitalized project name
+  // Report which candidate globals are present after loading
+  const candidates = ['OpenSCAD', 'openscad', 'Module', 'createModule'];
+  const found = candidates.filter((n) => typeof self[n] === 'function');
+  self.postMessage({ type: 'log', msg: 'openscad.js loaded. Function globals found: [' + found.join(', ') + ']' });
+
   const factory = self.OpenSCAD || self.openscad || self.Module;
   if (typeof factory !== 'function') {
+    const allGlobals = Object.keys(self).filter((k) => {
+      try { return typeof self[k] === 'function'; } catch(_) { return false; }
+    }).slice(0, 30);
     throw new Error(
-      'openscad-wasm: factory not found after loading. ' +
-      'Expected global "OpenSCAD". Check CDN availability.'
+      'openscad-wasm: factory not found. None of [' + candidates.join(', ') + '] are functions. ' +
+      'Other globals: [' + allGlobals.join(', ') + ']'
     );
   }
 
+  self.postMessage({ type: 'log', msg: 'Initialising OpenSCAD WASM (factory: ' + factory.name + ')…' });
   instance = await factory({
     locateFile: (path) => CDN + path,
     print: (msg) => self.postMessage({ type: 'log', msg }),
@@ -83,6 +93,7 @@ self.addEventListener('message', async (e) => {
     self.postMessage({ type: 'status', msg: 'Rendering model… (may take a few seconds)' });
 
     const args = [...(flags || []), '-o', 'out.stl', entryFile];
+    self.postMessage({ type: 'log', msg: 'callMain args: ' + JSON.stringify(args) });
     let exitCode = 0;
     try {
       exitCode = oc.callMain(args);
