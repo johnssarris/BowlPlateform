@@ -20,7 +20,7 @@ async function getOpenSCAD() {
     throw new Error('Failed to import openscad.js: ' + e.message);
   }
 
-  const factory = mod.default || mod.OpenSCAD || mod.openscad;
+  const factory = mod.default || mod.OpenSCAD || mod.openscad || mod.createOpenSCAD;
   if (typeof factory !== 'function') {
     throw new Error('openscad module exports: [' + Object.keys(mod).join(', ') + ']');
   }
