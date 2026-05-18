@@ -14,10 +14,10 @@ cturing Information (PMI)---4.0---2014-10-13',
 /* implementation_level */ '2;1');
 
 FILE_NAME(
-/* name */ '6a09f01580c6824b475ea0a1',
+/* name */ 'Dog_Bowl_Platform',
 /* time_stamp */ '2026-05-17T16:43:02Z',
-/* author */ (''),
-/* organization */ (''),
+/* author */ ('CAD Designer'),
+/* organization */ ('BowlPlateform Project'),
 /* preprocessor_version */ 'ST-DEVELOPER v20',
 /* originating_system */ 'ONSHAPE BY PTC INC, 1.215',
 /* authorisation */ '  ');
@@ -14022,7 +14022,7 @@ SHAPE_REPRESENTATION_RELATIONSHIP()
 #13540=SHAPE_DEFINITION_REPRESENTATION(#22063,#13547);
 #13541=SHAPE_DEFINITION_REPRESENTATION(#22072,#13548);
 #13542=SHAPE_DEFINITION_REPRESENTATION(#22082,#13549);
-#13543=SHAPE_REPRESENTATION('Dog Bowl Plateform',(#13550,#13577,#13906,
+#13543=SHAPE_REPRESENTATION('Dog Bowl Platform',(#13550,#13577,#13906,
 #13907,#14078,#14079,#14080,#14207,#14208,#14209,#14210,#14211,#14212,#14213,
 #14214,#14232,#14233,#14234,#14235,#14236,#14237,#14238,#14239,#14240,#14411,
 #14412,#14413,#14414,#14415,#14416,#14417,#14418,#14419,#14420,#14421),
@@ -22524,7 +22524,7 @@ SHAPE_REPRESENTATION_RELATIONSHIP()
 GEOMETRIC_REPRESENTATION_CONTEXT(3)
 GLOBAL_UNCERTAINTY_ASSIGNED_CONTEXT((#22043))
 GLOBAL_UNIT_ASSIGNED_CONTEXT((#22052,#22051,#22050))
-REPRESENTATION_CONTEXT('Dog Bowl Plateform','TOP_LEVEL_ASSEMBLY_PART')
+REPRESENTATION_CONTEXT('Dog Bowl Platform','TOP_LEVEL_ASSEMBLY_PART')
 );
 #22037=(
 GEOMETRIC_REPRESENTATION_CONTEXT(3)
@@ -22646,44 +22646,44 @@ SI_UNIT($,.METRE.)
 #22105=PRODUCT_DEFINITION_CONTEXT('',#22144,'design');
 #22106=PRODUCT_DEFINITION_CONTEXT('',#22144,'design');
 #22107=PRODUCT_DEFINITION_CONTEXT('',#22144,'design');
-#22108=PRODUCT_DEFINITION_FORMATION_WITH_SPECIFIED_SOURCE('','',#22122,
+#22108=PRODUCT_DEFINITION_FORMATION_WITH_SPECIFIED_SOURCE('1','Initial design release',#22122,
  .NOT_KNOWN.);
-#22109=PRODUCT_DEFINITION_FORMATION_WITH_SPECIFIED_SOURCE('','',#22123,
+#22109=PRODUCT_DEFINITION_FORMATION_WITH_SPECIFIED_SOURCE('1','Initial design release',#22123,
  .NOT_KNOWN.);
-#22110=PRODUCT_DEFINITION_FORMATION_WITH_SPECIFIED_SOURCE('','',#22124,
+#22110=PRODUCT_DEFINITION_FORMATION_WITH_SPECIFIED_SOURCE('1','Initial design release',#22124,
  .NOT_KNOWN.);
-#22111=PRODUCT_DEFINITION_FORMATION_WITH_SPECIFIED_SOURCE('','',#22125,
+#22111=PRODUCT_DEFINITION_FORMATION_WITH_SPECIFIED_SOURCE('1','Initial design release',#22125,
  .NOT_KNOWN.);
-#22112=PRODUCT_DEFINITION_FORMATION_WITH_SPECIFIED_SOURCE('','',#22126,
+#22112=PRODUCT_DEFINITION_FORMATION_WITH_SPECIFIED_SOURCE('1','Initial design release',#22126,
  .NOT_KNOWN.);
-#22113=PRODUCT_DEFINITION_FORMATION_WITH_SPECIFIED_SOURCE('','',#22127,
+#22113=PRODUCT_DEFINITION_FORMATION_WITH_SPECIFIED_SOURCE('1','Initial design release',#22127,
  .NOT_KNOWN.);
-#22114=PRODUCT_DEFINITION_FORMATION_WITH_SPECIFIED_SOURCE('','',#22128,
+#22114=PRODUCT_DEFINITION_FORMATION_WITH_SPECIFIED_SOURCE('1','Initial design release',#22128,
  .NOT_KNOWN.);
-#22115=PRODUCT_RELATED_PRODUCT_CATEGORY('','',(#22122));
-#22116=PRODUCT_RELATED_PRODUCT_CATEGORY('','',(#22123));
-#22117=PRODUCT_RELATED_PRODUCT_CATEGORY('','',(#22124));
-#22118=PRODUCT_RELATED_PRODUCT_CATEGORY('','',(#22125));
-#22119=PRODUCT_RELATED_PRODUCT_CATEGORY('','',(#22126));
-#22120=PRODUCT_RELATED_PRODUCT_CATEGORY('','',(#22127));
-#22121=PRODUCT_RELATED_PRODUCT_CATEGORY('','',(#22128));
-#22122=PRODUCT('Dog Bowl Plateform','Dog Bowl Plateform',
-'Dog Bowl Plateform',(#22136));
-#22123=PRODUCT('Frame_Segment','Frame_Segment','Frame_Segment',(#22137));
-#22124=PRODUCT('Center_Top','Center_Top','Center_Top',(#22138));
+#22115=PRODUCT_RELATED_PRODUCT_CATEGORY('assembly','Top-level platform assembly',(#22122));
+#22116=PRODUCT_RELATED_PRODUCT_CATEGORY('part','Mechanical component part',(#22123));
+#22117=PRODUCT_RELATED_PRODUCT_CATEGORY('part','Mechanical component part',(#22124));
+#22118=PRODUCT_RELATED_PRODUCT_CATEGORY('part','Mechanical component part',(#22125));
+#22119=PRODUCT_RELATED_PRODUCT_CATEGORY('part','Mechanical component part',(#22126));
+#22120=PRODUCT_RELATED_PRODUCT_CATEGORY('part','Mechanical component part',(#22127));
+#22121=PRODUCT_RELATED_PRODUCT_CATEGORY('part','Mechanical component part',(#22128));
+#22122=PRODUCT('Dog Bowl Platform','Dog Bowl Platform',
+'Top-level assembly: elevated dog bowl platform',(#22136));
+#22123=PRODUCT('Frame_Segment','Frame_Segment','Structural outer frame segment of the bowl platform',(#22137));
+#22124=PRODUCT('Center_Top','Center_Top','Central top plate spanning the platform frame',(#22138));
 #22125=PRODUCT('Corner_Stabilizer_A','Corner_Stabilizer_A',
-'Corner_Stabilizer_A',(#22139));
-#22126=PRODUCT('Corner_Top','Corner_Top','Corner_Top',(#22140));
-#22127=PRODUCT('Bowl','Bowl','Bowl',(#22141));
+'Corner stabilizer foot, type A',(#22139));
+#22126=PRODUCT('Corner_Top','Corner_Top','Top cover panel for platform corners',(#22140));
+#22127=PRODUCT('Bowl','Bowl','Recessed bowl insert for food or water',(#22141));
 #22128=PRODUCT('Corner_Stabilizer_B','Corner_Stabilizer_B',
-'Corner_Stabilizer_B',(#22142));
-#22129=PRODUCT_CATEGORY('','');
-#22130=PRODUCT_CATEGORY('','');
-#22131=PRODUCT_CATEGORY('','');
-#22132=PRODUCT_CATEGORY('','');
-#22133=PRODUCT_CATEGORY('','');
-#22134=PRODUCT_CATEGORY('','');
-#22135=PRODUCT_CATEGORY('','');
+'Corner stabilizer foot, type B',(#22142));
+#22129=PRODUCT_CATEGORY('mechanical','Mechanical design category');
+#22130=PRODUCT_CATEGORY('mechanical','Mechanical design category');
+#22131=PRODUCT_CATEGORY('mechanical','Mechanical design category');
+#22132=PRODUCT_CATEGORY('mechanical','Mechanical design category');
+#22133=PRODUCT_CATEGORY('mechanical','Mechanical design category');
+#22134=PRODUCT_CATEGORY('mechanical','Mechanical design category');
+#22135=PRODUCT_CATEGORY('mechanical','Mechanical design category');
 #22136=PRODUCT_CONTEXT('',#22144,'mechanical');
 #22137=PRODUCT_CONTEXT('',#22144,'mechanical');
 #22138=PRODUCT_CONTEXT('',#22144,'mechanical');
