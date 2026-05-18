@@ -7,43 +7,27 @@ const stderrLines = [];
 async function getOpenSCAD() {
   if (instance) return instance;
 
+  // openscad-wasm is an ES module — use dynamic import() in a module worker.
+  // import.meta.url inside openscad.js will be the CDN URL, so the WASM binary
+  // is automatically resolved to CDN + 'openscad.wasm' without extra config.
   const jsUrl = CDN + 'openscad.js';
-  self.postMessage({ type: 'log', msg: 'Fetching openscad.js from: ' + jsUrl });
-  // iOS Safari blocks cross-origin importScripts() even with CORS headers.
-  // Workaround: fetch the text, wrap in a same-origin Blob URL, then importScripts.
-  let blobUrl;
+  self.postMessage({ type: 'log', msg: 'Importing openscad module from: ' + jsUrl });
+
+  let mod;
   try {
-    const resp = await fetch(jsUrl);
-    if (!resp.ok) throw new Error('HTTP ' + resp.status);
-    const text = await resp.text();
-    const blob = new Blob([text], { type: 'application/javascript' });
-    blobUrl = URL.createObjectURL(blob);
-    importScripts(blobUrl);
+    mod = await import(jsUrl);
   } catch (e) {
-    throw new Error('Failed to load openscad.js (' + jsUrl + '): ' + e.message);
-  } finally {
-    if (blobUrl) URL.revokeObjectURL(blobUrl);
+    throw new Error('Failed to import openscad.js: ' + e.message);
   }
 
-  // Report which candidate globals are present after loading
-  const candidates = ['OpenSCAD', 'openscad', 'Module', 'createModule'];
-  const found = candidates.filter((n) => typeof self[n] === 'function');
-  self.postMessage({ type: 'log', msg: 'openscad.js loaded. Function globals found: [' + found.join(', ') + ']' });
-
-  const factory = self.OpenSCAD || self.openscad || self.Module;
+  const factory = mod.default || mod.OpenSCAD || mod.openscad;
   if (typeof factory !== 'function') {
-    const allGlobals = Object.keys(self).filter((k) => {
-      try { return typeof self[k] === 'function'; } catch(_) { return false; }
-    }).slice(0, 30);
-    throw new Error(
-      'openscad-wasm: factory not found. None of [' + candidates.join(', ') + '] are functions. ' +
-      'Other globals: [' + allGlobals.join(', ') + ']'
-    );
+    throw new Error('openscad module exports: [' + Object.keys(mod).join(', ') + ']');
   }
 
-  self.postMessage({ type: 'log', msg: 'Initialising OpenSCAD WASM (factory: ' + factory.name + ')…' });
+  self.postMessage({ type: 'log', msg: 'Initialising WASM (factory: ' + (factory.name || 'anonymous') + ')…' });
   instance = await factory({
-    locateFile: (path) => CDN + path,
+    locateFile: (path) => CDN + path,  // fallback for non-import.meta builds
     print: (msg) => self.postMessage({ type: 'log', msg }),
     printErr: (msg) => {
       stderrLines.push(msg);
