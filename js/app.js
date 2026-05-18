@@ -84,7 +84,7 @@ async function init() {
   }
 
   const workerUrl = new URL('./scad-worker.js', import.meta.url).href;
-  worker = new Worker(workerUrl);
+  worker = new Worker(workerUrl, { type: 'module' });
   worker.addEventListener('message', onWorkerMessage);
 
   setStatus('', false);
