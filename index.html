@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#1a1a2e">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="BowlViewer">
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="icons/icon.svg">
+  <title>Bowl Stand Viewer</title>
+
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+    }
+  }
+  </script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:       #0d0d1a;
+      --surface:  #1a1a2e;
+      --border:   #2a2a4a;
+      --text:     #e0e0f0;
+      --muted:    #8888aa;
+      --accent:   #2563eb;
+      --accent-h: #1d4ed8;
+      --safe-top:    env(safe-area-inset-top,    0px);
+      --safe-bottom: env(safe-area-inset-bottom, 0px);
+      --safe-left:   env(safe-area-inset-left,   0px);
+      --safe-right:  env(safe-area-inset-right,  0px);
+    }
+
+    html, body {
+      height: 100%; overflow: hidden;
+      background: var(--bg); color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-size: 15px; line-height: 1.4;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    #app {
+      display: flex; flex-direction: column;
+      height: 100%;
+      padding-top: var(--safe-top);
+      padding-left: var(--safe-left);
+      padding-right: var(--safe-right);
+    }
+
+    /* ── Header ─────────────────────────────── */
+    #header {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 10px 16px;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      flex-shrink: 0;
+      z-index: 5;
+    }
+    #header h1 { font-size: 1rem; font-weight: 600; letter-spacing: 0.01em; }
+    #header h1 span { color: var(--muted); font-weight: 400; }
+
+    /* ── 3D canvas ──────────────────────────── */
+    #canvas-wrap {
+      flex: 1; position: relative; overflow: hidden; min-height: 0;
+    }
+    #canvas { display: block; width: 100%; height: 100%; touch-action: none; }
+
+    /* ── Status overlay ─────────────────────── */
+    #status {
+      position: absolute; top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      background: rgba(10, 10, 26, 0.85);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 14px 22px;
+      font-size: 0.9rem; text-align: center;
+      pointer-events: none;
+      white-space: pre-wrap; max-width: 80vw;
+      display: none;
+    }
+    #status.visible { display: block; }
+    #status::before {
+      content: '';
+      display: inline-block; width: 10px; height: 10px;
+      border: 2px solid var(--muted);
+      border-top-color: var(--accent);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin-right: 8px; vertical-align: middle;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* ── Bottom bar ─────────────────────────── */
+    #bottom-bar {
+      display: flex; align-items: center; gap: 8px;
+      padding: 10px 12px;
+      padding-bottom: max(10px, var(--safe-bottom));
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      flex-shrink: 0;
+    }
+    #part-select {
+      flex: 1; min-width: 0;
+      background: var(--bg); color: var(--text);
+      border: 1px solid var(--border); border-radius: 8px;
+      padding: 8px 10px; font-size: 0.9rem; cursor: pointer;
+    }
+
+    /* ── Buttons ────────────────────────────── */
+    button {
+      background: #2a2a48; color: var(--text);
+      border: 1px solid var(--border); border-radius: 8px;
+      padding: 8px 14px; font-size: 0.875rem; cursor: pointer;
+      white-space: nowrap; flex-shrink: 0;
+      transition: background 0.15s;
+      -webkit-user-select: none; user-select: none;
+    }
+    button:hover  { background: #3a3a60; }
+    button:active { background: #222240; }
+    button:disabled { opacity: 0.4; cursor: default; }
+    button.primary  { background: var(--accent); border-color: var(--accent); }
+    button.primary:hover  { background: var(--accent-h); }
+    button.primary:active { background: #1a44c0; }
+
+    /* ── Params drawer ──────────────────────── */
+    #params-overlay {
+      position: fixed; inset: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 20; display: none;
+    }
+    #params-overlay.visible { display: block; }
+
+    #params-drawer {
+      position: fixed; bottom: 0; left: 0; right: 0;
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      border-radius: 18px 18px 0 0;
+      padding: 0 20px;
+      padding-bottom: max(24px, var(--safe-bottom));
+      z-index: 21;
+      max-height: 75vh; overflow-y: auto;
+      transform: translateY(100%);
+      transition: transform 0.28s cubic-bezier(0.32, 0.72, 0, 1);
+    }
+    #params-drawer.open { transform: translateY(0); }
+
+    .drawer-handle {
+      width: 36px; height: 4px;
+      background: var(--border); border-radius: 2px;
+      margin: 14px auto 0;
+    }
+
+    #drawer-header {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 16px 0 12px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 18px;
+    }
+    #drawer-header h2 { font-size: 1rem; font-weight: 600; }
+
+    /* ── Parameter rows ─────────────────────── */
+    .param-row { margin-bottom: 22px; }
+
+    .param-label {
+      display: flex; justify-content: space-between; align-items: baseline;
+      margin-bottom: 8px;
+    }
+    .param-label span { color: var(--muted); font-size: 0.85rem; }
+    .param-label .val { color: var(--text); font-size: 0.9rem; font-variant-numeric: tabular-nums; }
+
+    input[type="range"] {
+      -webkit-appearance: none; appearance: none;
+      width: 100%; height: 4px;
+      background: var(--border); border-radius: 2px; outline: none;
+      cursor: pointer;
+    }
+    input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 20px; height: 20px;
+      border-radius: 50%;
+      background: var(--accent);
+      border: 2px solid #fff;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.4);
+    }
+
+    .toggle-group { display: flex; gap: 8px; }
+    .toggle-group button { flex: 1; justify-content: center; }
+    .toggle-group button.active {
+      background: var(--accent); border-color: var(--accent);
+    }
+
+    /* ── Hint text in canvas ────────────────── */
+    #hint {
+      position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%);
+      font-size: 0.75rem; color: var(--muted);
+      pointer-events: none; white-space: nowrap;
+    }
+  </style>
+</head>
+<body>
+<div id="app">
+
+  <header id="header">
+    <h1>Bowl Stand <span>Viewer</span></h1>
+    <button onclick="toggleParams()">Parameters ▲</button>
+  </header>
+
+  <div id="canvas-wrap">
+    <canvas id="canvas"></canvas>
+    <div id="status"></div>
+    <div id="hint">Drag to orbit · Pinch to zoom · Two-finger pan</div>
+  </div>
+
+  <div id="bottom-bar">
+    <select id="part-select" onchange="/* auto-render on change is opt-in */">
+      <option value="assembly">Assembly</option>
+      <option value="corner_post">Corner Post</option>
+      <option value="horizontal_rail">Horizontal Rail</option>
+      <option value="bowl_cradle">Bowl Cradle</option>
+      <option value="print_layout">Print Layout</option>
+    </select>
+    <button class="primary" id="render-btn" onclick="triggerRender()">Render</button>
+    <button id="dl-btn" disabled onclick="downloadSTL()" title="Download STL">↓ STL</button>
+    <button onclick="resetParams()" title="Reset parameters">↺</button>
+  </div>
+
+</div>
+
+<!-- Parameters drawer -->
+<div id="params-overlay" onclick="toggleParams()"></div>
+<div id="params-drawer">
+  <div class="drawer-handle"></div>
+
+  <div id="drawer-header">
+    <h2>Parameters</h2>
+    <button onclick="toggleParams()">Done</button>
+  </div>
+
+  <div class="param-row">
+    <div class="param-label">
+      <span>Bowl diameter</span>
+      <span><span class="val" id="bowl_diameter-val">200</span> mm</span>
+    </div>
+    <input type="range" id="bowl_diameter" min="120" max="280" step="5" value="200">
+  </div>
+
+  <div class="param-row">
+    <div class="param-label"><span>Number of bowls</span></div>
+    <div class="toggle-group">
+      <button id="nb-1" onclick="setNumBowls(1)">1 Bowl</button>
+      <button id="nb-2" class="active" onclick="setNumBowls(2)">2 Bowls</button>
+    </div>
+  </div>
+
+  <div class="param-row">
+    <div class="param-label">
+      <span>Stand height</span>
+      <span><span class="val" id="stand_height-val">200</span> mm</span>
+    </div>
+    <input type="range" id="stand_height" min="80" max="350" step="10" value="200">
+  </div>
+
+  <div class="param-row">
+    <div class="param-label">
+      <span>Snap clearance</span>
+      <span><span class="val" id="snap_clearance-val">0.25</span> mm</span>
+    </div>
+    <input type="range" id="snap_clearance" min="0.10" max="0.45" step="0.05" value="0.25">
+  </div>
+
+  <div class="param-row">
+    <div class="param-label">
+      <span>Explode offset</span>
+      <span><span class="val" id="explode-val">0</span></span>
+    </div>
+    <input type="range" id="explode" min="0" max="80" step="5" value="0">
+  </div>
+
+</div>
+
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('./sw.js').catch(() => {});
+  }
+</script>
+<script type="module" src="js/app.js"></script>
+</body>
+</html>
