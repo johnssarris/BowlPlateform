@@ -14,10 +14,10 @@ cturing Information (PMI)---4.0---2014-10-13',
 /* implementation_level */ '2;1');
 
 FILE_NAME(
-/* name */ 'Dog Bowl Plateform',
+/* name */ 'Dog_Bowl_Platform',
 /* time_stamp */ '2026-05-18T01:24:35Z',
-/* author */ (''),
-/* organization */ (''),
+/* author */ ('CAD Designer'),
+/* organization */ ('BowlPlateform Project'),
 /* preprocessor_version */ 'ST-DEVELOPER v20',
 /* originating_system */ 'ONSHAPE BY PTC INC, 1.215',
 /* authorisation */ '  ');
@@ -65754,182 +65754,182 @@ SI_UNIT($,.METRE.)
 #64571=PRODUCT_DEFINITION_CONTEXT('',#64795,'design');
 #64572=PRODUCT_DEFINITION_CONTEXT('',#64796,'design');
 #64573=PRODUCT_DEFINITION_CONTEXT('',#64797,'design');
-#64574=PRODUCT_DEFINITION_FORMATION_WITH_SPECIFIED_SOURCE('','',#64638,
+#64574=PRODUCT_DEFINITION_FORMATION_WITH_SPECIFIED_SOURCE('1','Initial design release',#64638,
  .NOT_KNOWN.);
-#64575=PRODUCT_DEFINITION_FORMATION_WITH_SPECIFIED_SOURCE('','',#64639,
+#64575=PRODUCT_DEFINITION_FORMATION_WITH_SPECIFIED_SOURCE('1','Initial design release',#64639,
  .NOT_KNOWN.);
-#64576=PRODUCT_DEFINITION_FORMATION_WITH_SPECIFIED_SOURCE('','',#64640,
+#64576=PRODUCT_DEFINITION_FORMATION_WITH_SPECIFIED_SOURCE('1','Initial design release',#64640,
  .NOT_KNOWN.);
-#64577=PRODUCT_DEFINITION_FORMATION_WITH_SPECIFIED_SOURCE('','',#64641,
+#64577=PRODUCT_DEFINITION_FORMATION_WITH_SPECIFIED_SOURCE('1','Initial design release',#64641,
  .NOT_KNOWN.);
-#64578=PRODUCT_DEFINITION_FORMATION_WITH_SPECIFIED_SOURCE('','',#64642,
+#64578=PRODUCT_DEFINITION_FORMATION_WITH_SPECIFIED_SOURCE('1','Initial design release',#64642,
  .NOT_KNOWN.);
-#64579=PRODUCT_DEFINITION_FORMATION_WITH_SPECIFIED_SOURCE('','',#64643,
+#64579=PRODUCT_DEFINITION_FORMATION_WITH_SPECIFIED_SOURCE('1','Initial design release',#64643,
  .NOT_KNOWN.);
-#64580=PRODUCT_DEFINITION_FORMATION_WITH_SPECIFIED_SOURCE('','',#64644,
+#64580=PRODUCT_DEFINITION_FORMATION_WITH_SPECIFIED_SOURCE('1','Initial design release',#64644,
  .NOT_KNOWN.);
-#64581=PRODUCT_DEFINITION_FORMATION_WITH_SPECIFIED_SOURCE('','',#64645,
+#64581=PRODUCT_DEFINITION_FORMATION_WITH_SPECIFIED_SOURCE('1','Initial design release',#64645,
  .NOT_KNOWN.);
-#64582=PRODUCT_DEFINITION_FORMATION_WITH_SPECIFIED_SOURCE('','',#64646,
+#64582=PRODUCT_DEFINITION_FORMATION_WITH_SPECIFIED_SOURCE('1','Initial design release',#64646,
  .NOT_KNOWN.);
-#64583=PRODUCT_DEFINITION_FORMATION_WITH_SPECIFIED_SOURCE('','',#64647,
+#64583=PRODUCT_DEFINITION_FORMATION_WITH_SPECIFIED_SOURCE('1','Initial design release',#64647,
  .NOT_KNOWN.);
-#64584=PRODUCT_DEFINITION_FORMATION_WITH_SPECIFIED_SOURCE('','',#64648,
+#64584=PRODUCT_DEFINITION_FORMATION_WITH_SPECIFIED_SOURCE('1','Initial design release',#64648,
  .NOT_KNOWN.);
-#64585=PRODUCT_DEFINITION_FORMATION_WITH_SPECIFIED_SOURCE('','',#64649,
+#64585=PRODUCT_DEFINITION_FORMATION_WITH_SPECIFIED_SOURCE('1','Initial design release',#64649,
  .NOT_KNOWN.);
-#64586=PRODUCT_DEFINITION_FORMATION_WITH_SPECIFIED_SOURCE('','',#64650,
+#64586=PRODUCT_DEFINITION_FORMATION_WITH_SPECIFIED_SOURCE('1','Initial design release',#64650,
  .NOT_KNOWN.);
-#64587=PRODUCT_DEFINITION_FORMATION_WITH_SPECIFIED_SOURCE('','',#64651,
+#64587=PRODUCT_DEFINITION_FORMATION_WITH_SPECIFIED_SOURCE('1','Initial design release',#64651,
  .NOT_KNOWN.);
-#64588=PRODUCT_DEFINITION_FORMATION_WITH_SPECIFIED_SOURCE('','',#64652,
+#64588=PRODUCT_DEFINITION_FORMATION_WITH_SPECIFIED_SOURCE('1','Initial design release',#64652,
  .NOT_KNOWN.);
-#64589=PRODUCT_DEFINITION_FORMATION_WITH_SPECIFIED_SOURCE('','',#64653,
+#64589=PRODUCT_DEFINITION_FORMATION_WITH_SPECIFIED_SOURCE('1','Initial design release',#64653,
  .NOT_KNOWN.);
-#64590=PRODUCT_DEFINITION_FORMATION_WITH_SPECIFIED_SOURCE('','',#64654,
+#64590=PRODUCT_DEFINITION_FORMATION_WITH_SPECIFIED_SOURCE('1','Initial design release',#64654,
  .NOT_KNOWN.);
-#64591=PRODUCT_DEFINITION_FORMATION_WITH_SPECIFIED_SOURCE('','',#64655,
+#64591=PRODUCT_DEFINITION_FORMATION_WITH_SPECIFIED_SOURCE('1','Initial design release',#64655,
  .NOT_KNOWN.);
-#64592=PRODUCT_DEFINITION_FORMATION_WITH_SPECIFIED_SOURCE('','',#64656,
+#64592=PRODUCT_DEFINITION_FORMATION_WITH_SPECIFIED_SOURCE('1','Initial design release',#64656,
  .NOT_KNOWN.);
-#64593=PRODUCT_DEFINITION_FORMATION_WITH_SPECIFIED_SOURCE('','',#64657,
+#64593=PRODUCT_DEFINITION_FORMATION_WITH_SPECIFIED_SOURCE('1','Initial design release',#64657,
  .NOT_KNOWN.);
-#64594=PRODUCT_DEFINITION_FORMATION_WITH_SPECIFIED_SOURCE('','',#64658,
+#64594=PRODUCT_DEFINITION_FORMATION_WITH_SPECIFIED_SOURCE('1','Initial design release',#64658,
  .NOT_KNOWN.);
-#64595=PRODUCT_DEFINITION_FORMATION_WITH_SPECIFIED_SOURCE('','',#64659,
+#64595=PRODUCT_DEFINITION_FORMATION_WITH_SPECIFIED_SOURCE('1','Initial design release',#64659,
  .NOT_KNOWN.);
-#64596=PRODUCT_DEFINITION_FORMATION_WITH_SPECIFIED_SOURCE('','',#64660,
+#64596=PRODUCT_DEFINITION_FORMATION_WITH_SPECIFIED_SOURCE('1','Initial design release',#64660,
  .NOT_KNOWN.);
-#64597=PRODUCT_DEFINITION_FORMATION_WITH_SPECIFIED_SOURCE('','',#64661,
+#64597=PRODUCT_DEFINITION_FORMATION_WITH_SPECIFIED_SOURCE('1','Initial design release',#64661,
  .NOT_KNOWN.);
-#64598=PRODUCT_DEFINITION_FORMATION_WITH_SPECIFIED_SOURCE('','',#64662,
+#64598=PRODUCT_DEFINITION_FORMATION_WITH_SPECIFIED_SOURCE('1','Initial design release',#64662,
  .NOT_KNOWN.);
-#64599=PRODUCT_DEFINITION_FORMATION_WITH_SPECIFIED_SOURCE('','',#64663,
+#64599=PRODUCT_DEFINITION_FORMATION_WITH_SPECIFIED_SOURCE('1','Initial design release',#64663,
  .NOT_KNOWN.);
-#64600=PRODUCT_DEFINITION_FORMATION_WITH_SPECIFIED_SOURCE('','',#64664,
+#64600=PRODUCT_DEFINITION_FORMATION_WITH_SPECIFIED_SOURCE('1','Initial design release',#64664,
  .NOT_KNOWN.);
-#64601=PRODUCT_DEFINITION_FORMATION_WITH_SPECIFIED_SOURCE('','',#64665,
+#64601=PRODUCT_DEFINITION_FORMATION_WITH_SPECIFIED_SOURCE('1','Initial design release',#64665,
  .NOT_KNOWN.);
-#64602=PRODUCT_DEFINITION_FORMATION_WITH_SPECIFIED_SOURCE('','',#64666,
+#64602=PRODUCT_DEFINITION_FORMATION_WITH_SPECIFIED_SOURCE('1','Initial design release',#64666,
  .NOT_KNOWN.);
-#64603=PRODUCT_DEFINITION_FORMATION_WITH_SPECIFIED_SOURCE('','',#64667,
+#64603=PRODUCT_DEFINITION_FORMATION_WITH_SPECIFIED_SOURCE('1','Initial design release',#64667,
  .NOT_KNOWN.);
-#64604=PRODUCT_DEFINITION_FORMATION_WITH_SPECIFIED_SOURCE('','',#64668,
+#64604=PRODUCT_DEFINITION_FORMATION_WITH_SPECIFIED_SOURCE('1','Initial design release',#64668,
  .NOT_KNOWN.);
-#64605=PRODUCT_DEFINITION_FORMATION_WITH_SPECIFIED_SOURCE('','',#64669,
+#64605=PRODUCT_DEFINITION_FORMATION_WITH_SPECIFIED_SOURCE('1','Initial design release',#64669,
  .NOT_KNOWN.);
-#64606=PRODUCT_RELATED_PRODUCT_CATEGORY('','',(#64638));
-#64607=PRODUCT_RELATED_PRODUCT_CATEGORY('','',(#64639));
-#64608=PRODUCT_RELATED_PRODUCT_CATEGORY('','',(#64640));
-#64609=PRODUCT_RELATED_PRODUCT_CATEGORY('','',(#64641));
-#64610=PRODUCT_RELATED_PRODUCT_CATEGORY('','',(#64642));
-#64611=PRODUCT_RELATED_PRODUCT_CATEGORY('','',(#64643));
-#64612=PRODUCT_RELATED_PRODUCT_CATEGORY('','',(#64644));
-#64613=PRODUCT_RELATED_PRODUCT_CATEGORY('','',(#64645));
-#64614=PRODUCT_RELATED_PRODUCT_CATEGORY('','',(#64646));
-#64615=PRODUCT_RELATED_PRODUCT_CATEGORY('','',(#64647));
-#64616=PRODUCT_RELATED_PRODUCT_CATEGORY('','',(#64648));
-#64617=PRODUCT_RELATED_PRODUCT_CATEGORY('','',(#64649));
-#64618=PRODUCT_RELATED_PRODUCT_CATEGORY('','',(#64650));
-#64619=PRODUCT_RELATED_PRODUCT_CATEGORY('','',(#64651));
-#64620=PRODUCT_RELATED_PRODUCT_CATEGORY('','',(#64652));
-#64621=PRODUCT_RELATED_PRODUCT_CATEGORY('','',(#64653));
-#64622=PRODUCT_RELATED_PRODUCT_CATEGORY('','',(#64654));
-#64623=PRODUCT_RELATED_PRODUCT_CATEGORY('','',(#64655));
-#64624=PRODUCT_RELATED_PRODUCT_CATEGORY('','',(#64656));
-#64625=PRODUCT_RELATED_PRODUCT_CATEGORY('','',(#64657));
-#64626=PRODUCT_RELATED_PRODUCT_CATEGORY('','',(#64658));
-#64627=PRODUCT_RELATED_PRODUCT_CATEGORY('','',(#64659));
-#64628=PRODUCT_RELATED_PRODUCT_CATEGORY('','',(#64660));
-#64629=PRODUCT_RELATED_PRODUCT_CATEGORY('','',(#64661));
-#64630=PRODUCT_RELATED_PRODUCT_CATEGORY('','',(#64662));
-#64631=PRODUCT_RELATED_PRODUCT_CATEGORY('','',(#64663));
-#64632=PRODUCT_RELATED_PRODUCT_CATEGORY('','',(#64664));
-#64633=PRODUCT_RELATED_PRODUCT_CATEGORY('','',(#64665));
-#64634=PRODUCT_RELATED_PRODUCT_CATEGORY('','',(#64666));
-#64635=PRODUCT_RELATED_PRODUCT_CATEGORY('','',(#64667));
-#64636=PRODUCT_RELATED_PRODUCT_CATEGORY('','',(#64668));
-#64637=PRODUCT_RELATED_PRODUCT_CATEGORY('','',(#64669));
-#64638=PRODUCT('Frame_Segment_19','Frame_Segment_19','Frame_Segment_19',
+#64606=PRODUCT_RELATED_PRODUCT_CATEGORY('part','Mechanical component part',(#64638));
+#64607=PRODUCT_RELATED_PRODUCT_CATEGORY('part','Mechanical component part',(#64639));
+#64608=PRODUCT_RELATED_PRODUCT_CATEGORY('part','Mechanical component part',(#64640));
+#64609=PRODUCT_RELATED_PRODUCT_CATEGORY('part','Mechanical component part',(#64641));
+#64610=PRODUCT_RELATED_PRODUCT_CATEGORY('part','Mechanical component part',(#64642));
+#64611=PRODUCT_RELATED_PRODUCT_CATEGORY('part','Mechanical component part',(#64643));
+#64612=PRODUCT_RELATED_PRODUCT_CATEGORY('part','Mechanical component part',(#64644));
+#64613=PRODUCT_RELATED_PRODUCT_CATEGORY('part','Mechanical component part',(#64645));
+#64614=PRODUCT_RELATED_PRODUCT_CATEGORY('part','Mechanical component part',(#64646));
+#64615=PRODUCT_RELATED_PRODUCT_CATEGORY('part','Mechanical component part',(#64647));
+#64616=PRODUCT_RELATED_PRODUCT_CATEGORY('part','Mechanical component part',(#64648));
+#64617=PRODUCT_RELATED_PRODUCT_CATEGORY('part','Mechanical component part',(#64649));
+#64618=PRODUCT_RELATED_PRODUCT_CATEGORY('part','Mechanical component part',(#64650));
+#64619=PRODUCT_RELATED_PRODUCT_CATEGORY('part','Mechanical component part',(#64651));
+#64620=PRODUCT_RELATED_PRODUCT_CATEGORY('part','Mechanical component part',(#64652));
+#64621=PRODUCT_RELATED_PRODUCT_CATEGORY('part','Mechanical component part',(#64653));
+#64622=PRODUCT_RELATED_PRODUCT_CATEGORY('part','Mechanical component part',(#64654));
+#64623=PRODUCT_RELATED_PRODUCT_CATEGORY('part','Mechanical component part',(#64655));
+#64624=PRODUCT_RELATED_PRODUCT_CATEGORY('part','Mechanical component part',(#64656));
+#64625=PRODUCT_RELATED_PRODUCT_CATEGORY('part','Mechanical component part',(#64657));
+#64626=PRODUCT_RELATED_PRODUCT_CATEGORY('part','Mechanical component part',(#64658));
+#64627=PRODUCT_RELATED_PRODUCT_CATEGORY('part','Mechanical component part',(#64659));
+#64628=PRODUCT_RELATED_PRODUCT_CATEGORY('part','Mechanical component part',(#64660));
+#64629=PRODUCT_RELATED_PRODUCT_CATEGORY('part','Mechanical component part',(#64661));
+#64630=PRODUCT_RELATED_PRODUCT_CATEGORY('part','Mechanical component part',(#64662));
+#64631=PRODUCT_RELATED_PRODUCT_CATEGORY('part','Mechanical component part',(#64663));
+#64632=PRODUCT_RELATED_PRODUCT_CATEGORY('part','Mechanical component part',(#64664));
+#64633=PRODUCT_RELATED_PRODUCT_CATEGORY('part','Mechanical component part',(#64665));
+#64634=PRODUCT_RELATED_PRODUCT_CATEGORY('part','Mechanical component part',(#64666));
+#64635=PRODUCT_RELATED_PRODUCT_CATEGORY('part','Mechanical component part',(#64667));
+#64636=PRODUCT_RELATED_PRODUCT_CATEGORY('part','Mechanical component part',(#64668));
+#64637=PRODUCT_RELATED_PRODUCT_CATEGORY('part','Mechanical component part',(#64669));
+#64638=PRODUCT('Frame_Segment_19','Frame_Segment_19','Structural frame segment component instance',
 (#64702));
-#64639=PRODUCT('Frame_Segment_18','Frame_Segment_18','Frame_Segment_18',
+#64639=PRODUCT('Frame_Segment_18','Frame_Segment_18','Structural frame segment component instance',
 (#64703));
-#64640=PRODUCT('Frame_Segment_17','Frame_Segment_17','Frame_Segment_17',
+#64640=PRODUCT('Frame_Segment_17','Frame_Segment_17','Structural frame segment component instance',
 (#64704));
-#64641=PRODUCT('Frame_Segment','Frame_Segment','Frame_Segment',(#64705));
-#64642=PRODUCT('Center_Top_1','Center_Top_1','Center_Top_1',(#64706));
-#64643=PRODUCT('Center_Top','Center_Top','Center_Top',(#64707));
-#64644=PRODUCT('Frame_Segment_16','Frame_Segment_16','Frame_Segment_16',
+#64641=PRODUCT('Frame_Segment','Frame_Segment','Structural frame segment component instance',(#64705));
+#64642=PRODUCT('Center_Top_1','Center_Top_1','Central top plate instance',(#64706));
+#64643=PRODUCT('Center_Top','Center_Top','Central top plate instance',(#64707));
+#64644=PRODUCT('Frame_Segment_16','Frame_Segment_16','Structural frame segment component instance',
 (#64708));
-#64645=PRODUCT('Frame_Segment_1','Frame_Segment_1','Frame_Segment_1',(#64709));
+#64645=PRODUCT('Frame_Segment_1','Frame_Segment_1','Structural frame segment component instance',(#64709));
 #64646=PRODUCT('Corner_Stabilizer_B','Corner_Stabilizer_B',
-'Corner_Stabilizer_B',(#64710));
+'Corner stabilizer foot, type B instance',(#64710));
 #64647=PRODUCT('Corner_Stabilizer_A','Corner_Stabilizer_A',
-'Corner_Stabilizer_A',(#64711));
-#64648=PRODUCT('Frame_Segment_15','Frame_Segment_15','Frame_Segment_15',
+'Corner stabilizer foot, type A instance',(#64711));
+#64648=PRODUCT('Frame_Segment_15','Frame_Segment_15','Structural frame segment component instance',
 (#64712));
-#64649=PRODUCT('Frame_Segment_2','Frame_Segment_2','Frame_Segment_2',(#64713));
-#64650=PRODUCT('Frame_Segment_3','Frame_Segment_3','Frame_Segment_3',(#64714));
-#64651=PRODUCT('Frame_Segment_21','Frame_Segment_21','Frame_Segment_21',
+#64649=PRODUCT('Frame_Segment_2','Frame_Segment_2','Structural frame segment component instance',(#64713));
+#64650=PRODUCT('Frame_Segment_3','Frame_Segment_3','Structural frame segment component instance',(#64714));
+#64651=PRODUCT('Frame_Segment_21','Frame_Segment_21','Structural frame segment component instance',
 (#64715));
-#64652=PRODUCT('Corner_Top','Corner_Top','Corner_Top',(#64716));
-#64653=PRODUCT('Frame_Segment_20','Frame_Segment_20','Frame_Segment_20',
+#64652=PRODUCT('Corner_Top','Corner_Top','Corner top cover panel instance',(#64716));
+#64653=PRODUCT('Frame_Segment_20','Frame_Segment_20','Structural frame segment component instance',
 (#64717));
-#64654=PRODUCT('Frame_Segment_14','Frame_Segment_14','Frame_Segment_14',
+#64654=PRODUCT('Frame_Segment_14','Frame_Segment_14','Structural frame segment component instance',
 (#64718));
-#64655=PRODUCT('Frame_Segment_4','Frame_Segment_4','Frame_Segment_4',(#64719));
-#64656=PRODUCT('Corner_Top_2','Corner_Top_2','Corner_Top_2',(#64720));
-#64657=PRODUCT('Frame_Segment_13','Frame_Segment_13','Frame_Segment_13',
+#64655=PRODUCT('Frame_Segment_4','Frame_Segment_4','Structural frame segment component instance',(#64719));
+#64656=PRODUCT('Corner_Top_2','Corner_Top_2','Corner top cover panel instance',(#64720));
+#64657=PRODUCT('Frame_Segment_13','Frame_Segment_13','Structural frame segment component instance',
 (#64721));
-#64658=PRODUCT('Frame_Segment_5','Frame_Segment_5','Frame_Segment_5',(#64722));
-#64659=PRODUCT('Frame_Segment_9','Frame_Segment_9','Frame_Segment_9',(#64723));
-#64660=PRODUCT('Frame_Segment_12','Frame_Segment_12','Frame_Segment_12',
+#64658=PRODUCT('Frame_Segment_5','Frame_Segment_5','Structural frame segment component instance',(#64722));
+#64659=PRODUCT('Frame_Segment_9','Frame_Segment_9','Structural frame segment component instance',(#64723));
+#64660=PRODUCT('Frame_Segment_12','Frame_Segment_12','Structural frame segment component instance',
 (#64724));
 #64661=PRODUCT('Corner_Stabilizer_A_1','Corner_Stabilizer_A_1',
-'Corner_Stabilizer_A_1',(#64725));
-#64662=PRODUCT('Corner_Top_3','Corner_Top_3','Corner_Top_3',(#64726));
-#64663=PRODUCT('Frame_Segment_8','Frame_Segment_8','Frame_Segment_8',(#64727));
-#64664=PRODUCT('Frame_Segment_11','Frame_Segment_11','Frame_Segment_11',
+'Corner stabilizer foot, type A instance',(#64725));
+#64662=PRODUCT('Corner_Top_3','Corner_Top_3','Corner top cover panel instance',(#64726));
+#64663=PRODUCT('Frame_Segment_8','Frame_Segment_8','Structural frame segment component instance',(#64727));
+#64664=PRODUCT('Frame_Segment_11','Frame_Segment_11','Structural frame segment component instance',
 (#64728));
-#64665=PRODUCT('Frame_Segment_6','Frame_Segment_6','Frame_Segment_6',(#64729));
+#64665=PRODUCT('Frame_Segment_6','Frame_Segment_6','Structural frame segment component instance',(#64729));
 #64666=PRODUCT('Corner_Stabilizer_B_1','Corner_Stabilizer_B_1',
-'Corner_Stabilizer_B_1',(#64730));
-#64667=PRODUCT('Frame_Segment_10','Frame_Segment_10','Frame_Segment_10',
+'Corner stabilizer foot, type B instance',(#64730));
+#64667=PRODUCT('Frame_Segment_10','Frame_Segment_10','Structural frame segment component instance',
 (#64731));
-#64668=PRODUCT('Corner_Top_1','Corner_Top_1','Corner_Top_1',(#64732));
-#64669=PRODUCT('Frame_Segment_7','Frame_Segment_7','Frame_Segment_7',(#64733));
-#64670=PRODUCT_CATEGORY('','');
-#64671=PRODUCT_CATEGORY('','');
-#64672=PRODUCT_CATEGORY('','');
-#64673=PRODUCT_CATEGORY('','');
-#64674=PRODUCT_CATEGORY('','');
-#64675=PRODUCT_CATEGORY('','');
-#64676=PRODUCT_CATEGORY('','');
-#64677=PRODUCT_CATEGORY('','');
-#64678=PRODUCT_CATEGORY('','');
-#64679=PRODUCT_CATEGORY('','');
-#64680=PRODUCT_CATEGORY('','');
-#64681=PRODUCT_CATEGORY('','');
-#64682=PRODUCT_CATEGORY('','');
-#64683=PRODUCT_CATEGORY('','');
-#64684=PRODUCT_CATEGORY('','');
-#64685=PRODUCT_CATEGORY('','');
-#64686=PRODUCT_CATEGORY('','');
-#64687=PRODUCT_CATEGORY('','');
-#64688=PRODUCT_CATEGORY('','');
-#64689=PRODUCT_CATEGORY('','');
-#64690=PRODUCT_CATEGORY('','');
-#64691=PRODUCT_CATEGORY('','');
-#64692=PRODUCT_CATEGORY('','');
-#64693=PRODUCT_CATEGORY('','');
-#64694=PRODUCT_CATEGORY('','');
-#64695=PRODUCT_CATEGORY('','');
-#64696=PRODUCT_CATEGORY('','');
-#64697=PRODUCT_CATEGORY('','');
-#64698=PRODUCT_CATEGORY('','');
-#64699=PRODUCT_CATEGORY('','');
-#64700=PRODUCT_CATEGORY('','');
-#64701=PRODUCT_CATEGORY('','');
+#64668=PRODUCT('Corner_Top_1','Corner_Top_1','Corner top cover panel instance',(#64732));
+#64669=PRODUCT('Frame_Segment_7','Frame_Segment_7','Structural frame segment component instance',(#64733));
+#64670=PRODUCT_CATEGORY('mechanical','Mechanical design category');
+#64671=PRODUCT_CATEGORY('mechanical','Mechanical design category');
+#64672=PRODUCT_CATEGORY('mechanical','Mechanical design category');
+#64673=PRODUCT_CATEGORY('mechanical','Mechanical design category');
+#64674=PRODUCT_CATEGORY('mechanical','Mechanical design category');
+#64675=PRODUCT_CATEGORY('mechanical','Mechanical design category');
+#64676=PRODUCT_CATEGORY('mechanical','Mechanical design category');
+#64677=PRODUCT_CATEGORY('mechanical','Mechanical design category');
+#64678=PRODUCT_CATEGORY('mechanical','Mechanical design category');
+#64679=PRODUCT_CATEGORY('mechanical','Mechanical design category');
+#64680=PRODUCT_CATEGORY('mechanical','Mechanical design category');
+#64681=PRODUCT_CATEGORY('mechanical','Mechanical design category');
+#64682=PRODUCT_CATEGORY('mechanical','Mechanical design category');
+#64683=PRODUCT_CATEGORY('mechanical','Mechanical design category');
+#64684=PRODUCT_CATEGORY('mechanical','Mechanical design category');
+#64685=PRODUCT_CATEGORY('mechanical','Mechanical design category');
+#64686=PRODUCT_CATEGORY('mechanical','Mechanical design category');
+#64687=PRODUCT_CATEGORY('mechanical','Mechanical design category');
+#64688=PRODUCT_CATEGORY('mechanical','Mechanical design category');
+#64689=PRODUCT_CATEGORY('mechanical','Mechanical design category');
+#64690=PRODUCT_CATEGORY('mechanical','Mechanical design category');
+#64691=PRODUCT_CATEGORY('mechanical','Mechanical design category');
+#64692=PRODUCT_CATEGORY('mechanical','Mechanical design category');
+#64693=PRODUCT_CATEGORY('mechanical','Mechanical design category');
+#64694=PRODUCT_CATEGORY('mechanical','Mechanical design category');
+#64695=PRODUCT_CATEGORY('mechanical','Mechanical design category');
+#64696=PRODUCT_CATEGORY('mechanical','Mechanical design category');
+#64697=PRODUCT_CATEGORY('mechanical','Mechanical design category');
+#64698=PRODUCT_CATEGORY('mechanical','Mechanical design category');
+#64699=PRODUCT_CATEGORY('mechanical','Mechanical design category');
+#64700=PRODUCT_CATEGORY('mechanical','Mechanical design category');
+#64701=PRODUCT_CATEGORY('mechanical','Mechanical design category');
 #64702=PRODUCT_CONTEXT('',#64766,'mechanical');
 #64703=PRODUCT_CONTEXT('',#64767,'mechanical');
 #64704=PRODUCT_CONTEXT('',#64768,'mechanical');
