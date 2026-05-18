@@ -8,11 +8,21 @@ async function getOpenSCAD() {
   if (instance) return instance;
 
   const jsUrl = CDN + 'openscad.js';
-  self.postMessage({ type: 'log', msg: 'Loading openscad.js from: ' + jsUrl });
+  self.postMessage({ type: 'log', msg: 'Fetching openscad.js from: ' + jsUrl });
+  // iOS Safari blocks cross-origin importScripts() even with CORS headers.
+  // Workaround: fetch the text, wrap in a same-origin Blob URL, then importScripts.
+  let blobUrl;
   try {
-    importScripts(jsUrl);
+    const resp = await fetch(jsUrl);
+    if (!resp.ok) throw new Error('HTTP ' + resp.status);
+    const text = await resp.text();
+    const blob = new Blob([text], { type: 'application/javascript' });
+    blobUrl = URL.createObjectURL(blob);
+    importScripts(blobUrl);
   } catch (e) {
-    throw new Error('importScripts failed for ' + jsUrl + ': ' + e.message);
+    throw new Error('Failed to load openscad.js (' + jsUrl + '): ' + e.message);
+  } finally {
+    if (blobUrl) URL.revokeObjectURL(blobUrl);
   }
 
   // Report which candidate globals are present after loading
