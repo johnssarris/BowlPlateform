@@ -1,4 +1,4 @@
-const CACHE = 'bowlviewer-v1';
+const CACHE = 'bowlviewer-v2';
 
 const SHELL = [
   './index.html',
@@ -19,7 +19,12 @@ self.addEventListener('install', (e) => {
   e.waitUntil(
     caches.open(CACHE).then((c) => c.addAll(SHELL))
   );
-  self.skipWaiting();
+  // Do NOT call skipWaiting() here — let the page show the "update available"
+  // banner and let the user decide when to reload.
+});
+
+self.addEventListener('message', (e) => {
+  if (e.data?.action === 'skipWaiting') self.skipWaiting();
 });
 
 self.addEventListener('activate', (e) => {
@@ -38,6 +43,14 @@ self.addEventListener('fetch', (e) => {
   if (e.request.mode === 'navigate') {
     e.respondWith(
       caches.match('./index.html').then((r) => r || fetch(e.request))
+    );
+    return;
+  }
+
+  // version.json: always network-first so the current version is always fresh
+  if (url.pathname.endsWith('/version.json')) {
+    e.respondWith(
+      fetch(e.request).catch(() => caches.match(e.request))
     );
     return;
   }

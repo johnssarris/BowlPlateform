@@ -197,6 +197,28 @@
       background: var(--accent); border-color: var(--accent);
     }
 
+    /* ── Version in header ──────────────────── */
+    #app-version {
+      font-size: 0.7rem; color: var(--muted);
+      font-weight: 400; margin-left: 4px;
+    }
+
+    /* ── Update banner ──────────────────────── */
+    #update-banner {
+      display: none;
+      align-items: center; justify-content: center; gap: 10px;
+      padding: 8px 16px;
+      background: var(--accent);
+      font-size: 0.85rem;
+      flex-shrink: 0;
+    }
+    #update-banner button {
+      background: rgba(255,255,255,0.2);
+      border-color: rgba(255,255,255,0.4);
+      padding: 4px 12px; font-size: 0.8rem;
+    }
+    #update-banner button:hover { background: rgba(255,255,255,0.3); }
+
     /* ── Hint text in canvas ────────────────── */
     #hint {
       position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%);
@@ -248,9 +270,14 @@
 <div id="app">
 
   <header id="header">
-    <h1>Bowl Stand <span>Viewer</span></h1>
+    <h1>Bowl Stand <span>Viewer</span> <span id="app-version"></span></h1>
     <button onclick="toggleParams()">Parameters ▲</button>
   </header>
+
+  <div id="update-banner">
+    New version available —
+    <button onclick="applyUpdate()">Update now</button>
+  </div>
 
   <div id="canvas-wrap">
     <canvas id="canvas"></canvas>
@@ -335,11 +362,6 @@
   <button id="copy-btn" onclick="copyLogs()">Copy to clipboard</button>
 </div>
 
-<script>
-  if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('./sw.js').catch(() => {});
-  }
-</script>
 <script type="module" src="js/app.js"></script>
 </body>
 </html>

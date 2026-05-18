@@ -42,6 +42,32 @@ async function init() {
   initViewer(document.getElementById('canvas'));
   setupUI();
 
+  // Show version number (no-store so it's always the deployed value)
+  fetch('./version.json', { cache: 'no-store' })
+    .then((r) => r.ok ? r.json() : null)
+    .then((data) => {
+      if (data?.version) {
+        document.getElementById('app-version').textContent = 'v' + data.version;
+      }
+    })
+    .catch(() => {});
+
+  // Register service worker and wire up update detection
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('./sw.js')
+      .then((reg) => {
+        if (reg.waiting) showUpdateBanner(reg);
+        reg.addEventListener('updatefound', () => {
+          reg.installing.addEventListener('statechange', function () {
+            if (this.state === 'installed' && navigator.serviceWorker.controller) {
+              showUpdateBanner(reg);
+            }
+          });
+        });
+      })
+      .catch(() => {});
+  }
+
   setStatus('Loading SCAD files…', true);
   try {
     const entries = await Promise.all(
@@ -64,6 +90,20 @@ async function init() {
   setStatus('', false);
   triggerRender();
 }
+
+let _swReg = null;
+
+function showUpdateBanner(reg) {
+  _swReg = reg;
+  document.getElementById('update-banner').style.display = 'flex';
+}
+
+window.applyUpdate = () => {
+  if (_swReg?.waiting) {
+    _swReg.waiting.postMessage({ action: 'skipWaiting' });
+  }
+  navigator.serviceWorker.addEventListener('controllerchange', () => location.reload());
+};
 
 // ── UI bindings ───────────────────────────────────────────────────────────────
 
